@@ -4,6 +4,10 @@
 ## 프로젝트 소개 🖥️
 싸이월드 메인 홈페이지와 미니홈피를 참고하여 만든 사이트 입니다.
 
+![Minihomepage](https://github.com/user-attachments/assets/87016d48-8c0e-4a40-9cbc-6c228adbeded)
+
+![Minihomepage png_main](https://github.com/user-attachments/assets/e6598146-5c9c-48a1-b4da-991672301c58)
+
 ## 개발 기간 ⏱️
 24.05.07 - 24.05.13
 
