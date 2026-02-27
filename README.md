@@ -1,87 +1,76 @@
-# 📊 AuditInsightDashboard System
+# What is this projecy name ?
+시각화
 
-이 프로젝트는 공장 데이터를 효율적으로 관리하기 위해 인터페이스를 설계하고 구현한 BI(Business Intelligence) 솔루션입니다. 
+## 프로젝트 소개 🖥️
+싸이월드 메인 홈페이지와 미니홈피를 참고하여 만든 사이트 입니다.
 
-관리자가 데이터 속에서 즉각적인 의사결정을 내릴 수 있도록 시각적 위계와 데이터 밀도를 최적화하는 데 집중했습니다.
+![Minihomepage](https://github.com/user-attachments/assets/87016d48-8c0e-4a40-9cbc-6c228adbeded)
 
----
-## ✨ 핵심 하이라이트
-- Tableau 스타일 UI: 데이터 밀도는 높이고 장식은 뺀, BI 툴 특유의 정갈한 디자인
-
-- 7-Step 컬러 시스템: 만기 임박도에 따른 직관적인 리스크 시각화 (D-Day 자동 계산)
-
-- 스마트 필터링: KPI 카드를 클릭하여 특정 그룹만 즉시 모아보는 인터랙티브 기능
-
-- 적응형 레이아웃: 모바일에서는 차트 우선, 데스크탑에서는 데이터 우선의 반응형 설계
----
-## 🚀 주요 기능 (Key Features)
-
-📈 시각화 및 분석
-
-- 강화된 도넛 차트: 전체 리스크 비중을 한눈에 파악 (Recharts 활용)
-
-- 실시간 검색: 공장명, 바이어 등 복합 키워드에 반응하는 고성능 필터 엔진
-
-- 인터랙티브 툴팁: 데이터 포인트 호버 시 정밀 수치와 퍼센티지 즉시 노출
-
-⚡ 성능 및 최적화
-
-- 무한 스크롤: Intersection Observer 적용으로 대량 데이터도 끊김 없이 로드
-
-- 성능 보존: useMemo 기반의 최적화로 필터링 시 브라우저 부하 최소화
-
-- 점진적 로딩: 사용자 경험을 해치지 않는 매끄러운 데이터 렌더링
-
----
+![Minihomepage png_main](https://github.com/user-attachments/assets/e6598146-5c9c-48a1-b4da-991672301c58)
 
 ## 개발 기간 ⏱️
-26.02.?? - 26.0?.??
+24.05.07 - 24.05.13
 
----
+### 맴버 구성 🧑‍🤝‍🧑
+- 김종민: 미니홈피 메인 홈피, 방명록, 사진첩
+- 박서경: 싸이월드 메인 페이지 담당
+- 오승빈:
+- 한다솔: 다이어리 파트 담당
 
-## 맴버 구성 🧑‍🤝‍🧑
-- 박세형: PM
-- 서현석: Back
-- 한다솔: Front
+### 개발 환경 ⚙️
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![jQuery](https://img.shields.io/badge/jquery-%230769AD.svg?style=for-the-badge&logo=jquery&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![Oracle](https://img.shields.io/badge/Oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white)
 
----
+## 주요 기능 📌
+- DB값 겅증
+- 로그인, ID찾기, PW찾기
+- 로그인시 세션 생성
 
-## 🛠 기술 스택 (Tech Stack)
-| 분류 | 기술 |
-| :-: | :-: | 
-| Framework | ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)| 
-|Styling|![TailwindCSS](https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white) |
-|Library|Recharts, Framer Motion|
+# 주요 코드
+### JAVASCRIPT
+    $(document).ready(function() {
+    // 리스트 선언
+    let reply_list = [];
+    
+    <c:forEach var="blist" items="${reply}" varStatus="status">
+    // 서버에서 받은 LIST 구조형 자료를 자바스크립트 변수에 저장
+    reply_list.push({num:"${blist.dr_num}",// 작성된 다이어리 순번
+    writer:"${blist.dr_writer}", // 다이어리 작성자
+    content:"${blist.dr_content}",// 다이어리 내용
+    code:"${blist.dr_code}"});// 유저 코드    
+    </c:forEach>
+    
+    reply_list.forEach(function(arr) {
+    // 위 자바스크립트에 저장된 변수를 활용하여 댓글 끌어오기
+    const list = $(`#cmtlist\${arr['num']`);
+    const plus = `<p>\${arr['writer']} : \${arr['content']} </p> <hr>`;
+    list.append(plus); 
+    });
+    
+### 추후 아래 코드를 적용할 예정
+전반적인 코드 설명: 새로고침 없이 댓글 남기기, 삭제 등 구현
 
----
+@Controller -> @RestController 사용
 
-## 📱 반응형 레이아웃 전략
-- Desktop: 좌측 메뉴 + 상단 KPI/차트 + 하단 상세 테이블 (표준 BI 레이아웃)
+### JAVASCRIPT
 
-- Mobile:
+    function deldir(code){ 
+    // 다이어리 삭제
+    $("#diary" + code).attr("style", "display: none;"); // 삭제시 화면에서 지움
+    // ajax를 이용하여 서버로 삭제할 다이어리 코드 전달
+    }
 
- 1. 리스크 분포 차트 (최상단 노출로 전체 상황 우선 파악)
+    const writecmt = (num) => { // 댓글 작성
+    let a = $(`#comt\${num}`);
+    const list = $(`#cmtlist\${num}`);
+    const plus = `<p>익명인 : \${a.val()} </p>`;
+    a.val('');
+    list.append(plus);
+    // ajax를 이용하여 서버로 추가된 댓글과 다이어리 코드 전달
+    }
 
- 2. KPI 요약 카드 (수치 확인)
-
- 3. 상세 리스트 (필요시 하단 스크롤 탐색)
-
----
-
-## 🎨 디자인 포인트
-1. Logo: 데이터 포인트를 형상화한 기하학적 로고와 Insight Engine 슬로건 배치
-
-2. Sidebar: 현재 위치를 명확히 보여주는 수직 바(Vertical Bar) 인디케이터
-
-3. Table: 엑셀처럼 정갈한 레이아웃에 리스크 상태별 뱃지 시스템 적용
-
----
-
-## 💡 인사이트
-> "단순한 UI 구현을 넘어, 관리자가 수많은 데이터 속에서 의사결정의 우선순위를 어떻게 하면 가장 빠르게 정할 수 있을지 고민하며 제작했습니다."
-
----
-
-## 🔗 실행 방법
-
-> Back, Front README.MD 참고하기
